@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>reading log</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232D3A47'/%3E%3Ctext x='32' y='46' font-size='40' text-anchor='middle' fill='%23F7C8D3' font-family='serif'%3E%E2%99%A1%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%232D3A47'/%3E%3Ctext x='32' y='46' font-size='40' text-anchor='middle' fill='%23F7C8D3' font-family='serif'%3E%E2%99%A1%3C/text%3E%3C/svg%3E">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="reading log"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#2D3A47">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FFF7E6;--blush:#F7C8D3;--rose:#B46A72;--sage:#A8B58A;--sky:#A9B7C6;--night:#2D3A47;
+--card:rgba(255,247,230,.07);--line:rgba(255,247,230,.14);--muted:rgba(255,247,230,.62);
+--serif:"DM Serif Display",Georgia,"Times New Roman",serif;--sans:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+--ease:cubic-bezier(.22,.8,.3,1);
+box-sizing:border-box;color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;min-height:100vh;font-family:var(--sans);color:var(--cream);background:#2D3A47;
+background-image:radial-gradient(900px 500px at 85% -5%,rgba(247,200,211,.22),transparent 60%),radial-gradient(700px 500px at 0% 40%,rgba(169,183,198,.16),transparent 60%),linear-gradient(165deg,#2D3A47 0%,#3b4157 48%,#5b4558 82%,#7b5663 100%);
+background-attachment:fixed;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 18px 70px}
+header{text-align:center;animation:rise .8s var(--ease) both}
+.heart{font-size:22px;color:var(--blush);display:block;margin-bottom:2px}
+h1{font:400 clamp(40px,8vw,60px)/1.05 var(--serif);margin:0}
+.sub{color:var(--muted);margin:8px 0 18px}
+.pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.pill{padding:8px 16px;border:1px solid var(--line);border-radius:99px;background:var(--card);font-size:14px;backdrop-filter:blur(6px)}
+.pill b{font-weight:600}.pill i{color:var(--blush);font-style:normal}
+.tabs{display:none;margin:22px auto 0;padding:4px;gap:4px;border:1px solid var(--line);border-radius:99px;width:max-content;background:var(--card)}
+.tabs button{padding:8px 22px;border-radius:99px;font-family:var(--serif);font-size:18px;color:var(--muted);transition:background .35s var(--ease),color .35s}
+.tabs button.on{background:var(--rose);color:var(--cream)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:30px;align-items:start}
+.col{background:rgba(45,58,71,.28);border:1px solid var(--line);border-radius:30px;padding:22px 18px;backdrop-filter:blur(8px);animation:rise .8s var(--ease) both}
+.col:nth-child(2){animation-delay:.1s}
+.ch{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.ch h2{font:400 34px var(--serif);margin:0}
+.ch h2 small{font:400 15px var(--sans);color:var(--muted);margin-left:6px}
+.add{background:var(--rose);width:42px;height:42px;border-radius:50%;font-size:24px;line-height:1;box-shadow:0 6px 18px rgba(180,106,114,.4);transition:transform .3s var(--ease),filter .3s}
+.add:hover{transform:scale(1.08) rotate(90deg)}.add:active{transform:scale(.94)}
+.shelf{margin-top:20px}
+.shelf h3{font:400 24px var(--serif);margin:0 0 10px;text-transform:lowercase}
+.shelf h3 small{font:400 14px var(--sans);color:var(--muted);margin-left:5px}
+.empty{padding:16px;text-align:center;color:var(--muted);font-size:14px;border:1.5px dashed var(--line);border-radius:20px}
+.card{display:flex;gap:14px;padding:14px;margin-bottom:12px;background:var(--card);border:1px solid var(--line);border-radius:24px;transition:transform .35s var(--ease),background .3s,opacity .3s}
+.card:hover{background:rgba(255,247,230,.1);transform:translateY(-2px)}
+.card.new{animation:rise .55s var(--ease) both}
+.card.gone{opacity:0;transform:scale(.96) translateY(6px)}
+.cover{flex:none;width:76px;height:108px;border-radius:14px;background:var(--sky) center/cover;display:grid;place-items:center;color:var(--cream);font-size:28px;cursor:pointer;overflow:hidden;transition:transform .35s var(--ease)}
+.cover:hover{transform:scale(1.04)}
+.info{min-width:0;flex:1}
+.ttl{font:400 21px/1.2 var(--serif);margin:0;cursor:pointer;overflow-wrap:anywhere}
+.ttl span{background:linear-gradient(transparent 62%,var(--hl) 62%);padding:0 3px;margin-left:-3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.au{color:var(--muted);margin:3px 0 2px;font-size:14px}
+.stars{color:rgba(255,247,230,.22);letter-spacing:2px;font-size:15px;min-height:18px}.stars .on{color:var(--rose)}
+.bar{height:9px;border-radius:9px;background:rgba(255,247,230,.16);overflow:hidden;margin:8px 0 6px}
+.fill{height:100%;border-radius:9px;background:linear-gradient(90deg,var(--rose),var(--blush));transition:width .8s var(--ease)}
+.pt{font-size:14px}.pt b{font-weight:600}.ct{font-size:13px;color:var(--muted)}
+.btns{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:8px 15px;border-radius:99px;border:1px solid var(--line);background:rgba(255,247,230,.08);font-size:14px;transition:transform .25s var(--ease),background .25s}
+.btn:hover{background:rgba(255,247,230,.16)}.btn:active{transform:scale(.94)}
+.btn.main{background:var(--rose);border-color:transparent}
+.div{display:flex;justify-content:center;gap:14px;color:var(--rose);margin:34px 0 0;opacity:.9;font-size:15px}
+.div span:nth-child(2n){color:var(--blush)}
+/* modal */
+.ov{position:fixed;inset:0;z-index:20;background:rgba(30,38,50,.62);backdrop-filter:blur(6px);display:flex;align-items:flex-end;justify-content:center;animation:fade .3s ease both}
+.ov.out{animation:fadeo .25s ease both}.ov.out .sheet{animation:down .25s ease both}
+.sheet{width:100%;max-width:560px;max-height:92vh;overflow:auto;background:linear-gradient(170deg,#3a4558,#4a4458);border:1px solid var(--line);border-radius:30px 30px 0 0;padding:24px 20px calc(26px + env(safe-area-inset-bottom,0px));animation:up .45s var(--ease) both}
+@media(min-width:700px){.ov{align-items:center}.sheet{border-radius:30px}}
+.dh{display:flex;gap:16px}.dh .cover{width:104px;height:148px;cursor:default}.dh .cover:hover{transform:none}
+.dh h2{font:400 28px/1.15 var(--serif);margin:0 0 4px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 0}
+.chip{padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:rgba(255,247,230,.06);font-size:14px;text-transform:lowercase;transition:background .25s,color .25s,transform .2s var(--ease)}
+button.chip:active{transform:scale(.93)}
+.chip.on{background:var(--rose);border-color:transparent;color:var(--cream)}
+.chip.s{background:var(--blush);color:#7a3b45;border-color:transparent}
+.lbl{display:block;font:400 19px var(--serif);margin:20px 0 4px}
+.notes{white-space:pre-wrap;color:var(--muted);line-height:1.5;margin:4px 0 0}
+input[type=text],input[type=number],textarea{width:100%;padding:12px 14px;border-radius:16px;border:1px solid var(--line);background:rgba(255,247,230,.08);color:var(--cream);font:inherit;outline:0;transition:border-color .25s,background .25s}
+input:focus,textarea:focus{border-color:var(--blush);background:rgba(255,247,230,.12)}
+textarea{min-height:90px;resize:vertical}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.sw{display:flex;gap:10px;flex-wrap:wrap}
+.sw button{width:34px;height:34px;border-radius:50%;border:2px solid rgba(255,247,230,.35);transition:transform .25s var(--ease),box-shadow .25s}
+.sw button.on{transform:scale(1.18);box-shadow:0 0 0 3px rgba(255,247,230,.7)}
+.rate{display:flex;gap:4px}.rate button{font-size:30px;color:rgba(255,247,230,.25);transition:transform .2s var(--ease),color .2s}.rate button.on{color:var(--rose)}.rate button:active{transform:scale(1.25)}
+.acts{display:flex;gap:10px;margin-top:24px;justify-content:space-between;flex-wrap:wrap}
+.acts .btn{padding:11px 20px}.del{color:var(--blush)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}@keyframes fadeo{to{opacity:0}}
+@keyframes up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}@keyframes down{to{opacity:0;transform:translateY(40px)}}
+@media(max-width:819px){.cols{grid-template-columns:1fr}.tabs{display:flex}body[data-tab=manhwa] #c-novels,body[data-tab=novels] #c-manhwa{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body data-tab="manhwa">
+<div class="wrap">
+<header>
+<span class="heart">♡</span>
+<h1>reading log</h1>
+<p class="sub">what i’m reading, loving &amp; saving for later</p>
+<div class="pills" id="stats"></div>
+<div class="tabs"><button data-tab="manhwa" class="on">manhwa</button><button data-tab="novels">novels</button></div>
+</header>
+<div class="cols">
+<section class="col" id="c-manhwa" data-type="manhwa"></section>
+<section class="col" id="c-novels" data-type="novels"></section>
+</div>
+<div class="div"><span>✿</span><span>·</span><span>♡</span><span>·</span><span>✿</span></div>
+</div>
+<script>
+const K='readinglog-v1';
+try{const c=document.createElement('canvas');c.width=c.height=180;const x=c.getContext('2d');x.fillStyle='#2D3A47';x.fillRect(0,0,180,180);x.fillStyle='#F7C8D3';x.font='110px serif';x.textAlign='center';x.textBaseline='middle';x.fillText('♡',90,96);document.querySelector('link[rel=apple-touch-icon]').href=c.toDataURL('image/png')}catch(e){}
+try{const mk=n=>{const c=document.createElement('canvas');c.width=c.height=n;const x=c.getContext('2d');x.fillStyle='#2D3A47';x.fillRect(0,0,n,n);x.fillStyle='#F7C8D3';x.font=(n*.6)+'px serif';x.textAlign='center';x.textBaseline='middle';x.fillText('♡',n/2,n*.53);return c.toDataURL('image/png')};const m={name:'reading log',short_name:'reading log',start_url:location.href,display:'standalone',background_color:'#2D3A47',theme_color:'#2D3A47',icons:[{src:mk(192),sizes:'192x192',type:'image/png'},{src:mk(512),sizes:'512x512',type:'image/png'}]};const l=document.createElement('link');l.rel='manifest';l.href=URL.createObjectURL(new Blob([JSON.stringify(m)],{type:'application/manifest+json'}));document.head.appendChild(l)}catch(e){}
+const SH=[['reading','Reading'],['finished','Finished'],['waiting','Waiting'],['tbr','To Be Read']];
+const PUB=[['ongoing','Ongoing'],['hiatus','Hiatus'],['completed','Completed']];
+const PAL=[['Vanilla Cream','#FFF7E6'],['Blush Petal','#F7C8D3'],['Rosewood','#B46A72'],['Sage Leaf','#A8B58A'],['Misty Sky','#A9B7C6'],['Midnight Lagoon','#2D3A47']];
+const GEN=['romance','fantasy','romance fantasy','action','adventure','drama','comedy','historical','mystery','horror','supernatural','psychological','thriller','slice of life','sci-fi','tragedy','isekai','regression','reincarnation','royalty','school life','martial arts','sports','mature'];
+const NAMES={manhwa:'Manhwa',novels:'Novels'};
+let S=(()=>{try{const j=JSON.parse(localStorage.getItem(K));if(j&&j.manhwa&&j.novels)return j}catch(e){}return{manhwa:[],novels:[]}})();
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
+const fresh=new Set();
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const find=(t,id)=>S[t].find(b=>b.id===id);
+function prog(b){const t=+b.total||0,r=+b.read||0;if(!t)return{ok:false,pct:0,left:0,togo:0};const pct=Math.min(100,Math.round(r/t*100));return{ok:true,pct,left:100-pct,togo:Math.max(0,t-r)}}
+const starsH=n=>[1,2,3,4,5].map(i=>`<span class="${i<=n?'on':''}">★</span>`).join('');
+const coverH=b=>`<div class="cover" ${b.cover?`style="background-image:url('${b.cover}')"`:''} data-act="open">${b.cover?'':'♡'}</div>`;
+const ptxt=b=>{const p=prog(b);return p.ok?`<b>${p.pct}%</b> read · ${p.left}% left`:`<span style="color:var(--muted)">add total chapters to see progress</span>`};
+const ctxt=b=>{const p=prog(b);return p.ok?`${b.read}/${b.total} ch · ${p.togo} to go`:`${b.read||0} ch read`};
+
+function cardH(b){
+ return `<article class="card ${fresh.has(b.id)?'new':''}" data-id="${b.id}">${coverH(b)}
+ <div class="info"><h4 class="ttl" data-act="open" style="margin:0"><span style="--hl:${b.color}99">${esc(b.title)}</span></h4>
+ <div class="au">${esc(b.author)||'&nbsp;'}</div><div class="stars">${starsH(b.rating)}</div>
+ <div class="bar"><div class="fill" style="width:${prog(b).pct}%"></div></div>
+ <div class="pt">${ptxt(b)}</div><div class="ct">${ctxt(b)}</div>
+ <div class="btns"><button class="btn main" data-act="plus">+1 ch</button>${b.shelf!=='finished'?'<button class="btn" data-act="fin">finished ✓</button>':''}<button class="btn" data-act="edit">edit</button></div></div></article>`;
+}
+function render(){
+ for(const t of ['manhwa','novels']){
+  const el=$('#c-'+t);let h=`<div class="ch"><h2>${t}<small>${S[t].length}</small></h2><button class="add" data-act="add" aria-label="add ${t}">+</button></div>`;
+  for(const [k,n] of SH){const l=S[t].filter(b=>b.shelf===k);
+   h+=`<div class="shelf"><h3>${n}<small>${l.length}</small></h3>${l.length?l.map(cardH).join(''):'<div class="empty">nothing here yet ♡</div>'}</div>`}
+  el.innerHTML=h;
+ }
+ fresh.clear();
+ const all=[...S.manhwa,...S.novels],fin=all.filter(b=>b.shelf==='finished'),yr=new Date().getFullYear();
+ const rated=all.filter(b=>b.rating>0),avg=rated.length?(rated.reduce((a,b)=>a+b.rating,0)/rated.length).toFixed(1):'–';
+ $('#stats').innerHTML=`<span class="pill"><b>${fin.length}</b> finished</span><span class="pill"><b>${fin.filter(b=>b.finishedAt===yr).length}</b> in ${yr}</span><span class="pill">avg <b>${avg}</b> <i>★</i></span>`;
+}
+/* modal */
+let ov=null;
+function openSheet(html){closeSheet(true);ov=document.createElement('div');ov.className='ov';ov.innerHTML=`<div class="sheet">${html}</div>`;document.body.appendChild(ov);
+ ov.addEventListener('click',e=>{if(e.target===ov)closeSheet()});return $('.sheet',ov)}
+function closeSheet(now){if(!ov)return;const o=ov;ov=null;if(now)return o.remove();o.classList.add('out');setTimeout(()=>o.remove(),260)}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSheet()});
+
+function details(t,id){
+ const b=find(t,id);if(!b)return;const p=prog(b);
+ const sh=SH.find(s=>s[0]===b.shelf)[1],pub=PUB.find(s=>s[0]===b.pub);
+ const s=openSheet(`<div class="dh">${coverH(b).replace('data-act="open"','')}<div style="min-width:0"><h2><span style="background:linear-gradient(transparent 62%,${b.color}99 62%);padding:0 3px;margin-left:-3px">${esc(b.title)}</span></h2>
+ <div class="au">${esc(b.author)}</div><div class="stars">${starsH(b.rating)}</div>
+ <div class="chips" style="margin-top:8px"><span class="chip s">${sh}</span>${pub?`<span class="chip">${pub[1]}</span>`:''}</div></div></div>
+ <span class="lbl">progress</span><div class="bar" style="height:12px"><div class="fill" style="width:0"></div></div>
+ <div class="pt">${ptxt(b)}</div><div class="ct">${ctxt(b)}</div>
+ ${b.source?`<span class="lbl">source</span><div class="notes">${esc(b.source)}</div>`:''}
+ ${b.genres.length?`<span class="lbl">genres</span><div class="chips" style="margin:0">${b.genres.map(g=>`<span class="chip">${esc(g)}</span>`).join('')}</div>`:''}
+ ${b.notes?`<span class="lbl">notes</span><div class="notes">${esc(b.notes)}</div>`:''}
+ <div class="acts"><button class="btn" data-x="close">close</button><button class="btn main" data-x="edit">edit book</button></div>`);
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{$('.fill',s).style.width=p.pct+'%'}));
+ s.addEventListener('click',e=>{const x=e.target.dataset.x;if(x==='close')closeSheet();if(x==='edit'){closeSheet(true);editor(t,id)}});
+}
+
+function editor(t,id){
+ const old=id?find(t,id):null;
+ const d=old?JSON.parse(JSON.stringify(old)):{id:'b'+Date.now().toString(36),title:'',author:'',shelf:'reading',pub:'ongoing',genres:[],read:0,total:0,rating:0,color:PAL[2][1],notes:'',source:'',cover:''};
+ const s=openSheet(`<h2 style="font:400 30px var(--serif);margin:0 0 4px">${old?'edit book':'add to '+NAMES[t].toLowerCase()}</h2>
+ <span class="lbl">cover</span><div class="row" style="align-items:center;gap:14px"><div class="cover" id="cv" style="flex:none;width:70px;height:98px;cursor:default"></div>
+ <div style="display:flex;gap:8px;flex-wrap:wrap"><label class="btn" style="cursor:pointer">choose image<input type="file" accept="image/*" id="file" hidden></label><button class="btn" id="rmcv">remove</button></div></div>
+ <span class="lbl">title</span><input type="text" id="title" value="${esc(d.title)}">
+ <span class="lbl">author</span><input type="text" id="author" value="${esc(d.author)}">
+ <span class="lbl">shelf</span><div class="chips" style="margin:0" id="shelf">${SH.map(x=>`<button class="chip" data-v="${x[0]}">${x[1]}</button>`).join('')}</div>
+ <span class="lbl">publication status</span><div class="chips" style="margin:0" id="pub">${PUB.map(x=>`<button class="chip" data-v="${x[0]}">${x[1]}</button>`).join('')}</div>
+ <span class="lbl">genres</span><div class="chips" style="margin:0" id="gen">${GEN.map(g=>`<button class="chip" data-v="${g}">${g}</button>`).join('')}</div>
+ <span class="lbl">chapters</span><div class="row"><input type="number" min="0" id="read" placeholder="read" value="${d.read||''}"><input type="number" min="0" id="total" placeholder="total" value="${d.total||''}"></div>
+ <div class="ct" id="live" style="margin-top:8px"></div>
+ <span class="lbl">rating</span><div class="rate" id="rate">${[1,2,3,4,5].map(i=>`<button data-v="${i}">★</button>`).join('')}</div>
+ <span class="lbl">label colour</span><div class="sw" id="sw">${PAL.map(c=>`<button data-v="${c[1]}" title="${c[0]}" style="background:${c[1]}"></button>`).join('')}</div>
+ <span class="lbl">source</span><input type="text" id="source" placeholder="website or platform" value="${esc(d.source)}">
+ <span class="lbl">notes</span><textarea id="notes">${esc(d.notes)}</textarea>
+ <div class="acts"><div>${old?'<button class="btn del" id="del">delete</button>':''}</div><div style="display:flex;gap:10px"><button class="btn" id="cancel">cancel</button><button class="btn main" id="save">save</button></div></div>`);
+ const sync=()=>{
+  $('#cv',s).style.backgroundImage=d.cover?`url('${d.cover}')`:'';$('#cv',s).textContent=d.cover?'':'♡';
+  s.querySelectorAll('#shelf .chip').forEach(c=>c.classList.toggle('on',c.dataset.v===d.shelf));
+  s.querySelectorAll('#pub .chip').forEach(c=>c.classList.toggle('on',c.dataset.v===d.pub));
+  s.querySelectorAll('#gen .chip').forEach(c=>c.classList.toggle('on',d.genres.includes(c.dataset.v)));
+  s.querySelectorAll('#rate button').forEach(c=>c.classList.toggle('on',+c.dataset.v<=d.rating));
+  s.querySelectorAll('#sw button').forEach(c=>c.classList.toggle('on',c.dataset.v===d.color));
+  const p=prog(d);$('#live',s).textContent=p.ok?`${p.pct}% read · ${p.left}% left · ${p.togo} chapters to go`:'';
+ };
+ sync();
+ s.addEventListener('click',e=>{const c=e.target.closest('button');if(!c)return;const v=c.dataset.v,pa=c.parentElement.id;
+  if(pa==='shelf')d.shelf=v;else if(pa==='pub')d.pub=v;
+  else if(pa==='gen')d.genres=d.genres.includes(v)?d.genres.filter(g=>g!==v):[...d.genres,v];
+  else if(pa==='rate')d.rating=d.rating===+v?0:+v;else if(pa==='sw')d.color=v;
+  else if(c.id==='rmcv')d.cover='';else return;sync()});
+ const num=()=>{d.read=Math.max(0,+$('#read',s).value||0);d.total=Math.max(0,+$('#total',s).value||0);sync()};
+ $('#read',s).oninput=num;$('#total',s).oninput=num;
+ $('#file',s).onchange=e=>{const f=e.target.files[0];if(!f)return;const im=new Image(),u=URL.createObjectURL(f);
+  im.onload=()=>{const w=Math.min(320,im.width),h=Math.round(im.height*w/im.width),cv=document.createElement('canvas');cv.width=w;cv.height=h;
+   cv.getContext('2d').drawImage(im,0,0,w,h);d.cover=cv.toDataURL('image/jpeg',.82);URL.revokeObjectURL(u);sync()};im.src=u};
+ $('#cancel',s).onclick=()=>closeSheet();
+ const dl=$('#del',s);if(dl)dl.onclick=()=>{if(dl.dataset.sure){const el=document.querySelector(`[data-id="${id}"]`);closeSheet();if(el)el.classList.add('gone');
+   setTimeout(()=>{S[t]=S[t].filter(b=>b.id!==id);save();render()},280)}else{dl.dataset.sure=1;dl.textContent='tap again to delete'}};
+ $('#save',s).onclick=()=>{
+  d.title=$('#title',s).value.trim();if(!d.title){const i=$('#title',s);i.style.borderColor='var(--rose)';i.focus();return}
+  d.author=$('#author',s).value.trim();d.source=$('#source',s).value.trim();d.notes=$('#notes',s).value.trim();num();
+  if(d.total&&d.read>d.total)d.read=d.total;
+  if(d.shelf==='finished'){d.finishedAt=(old&&old.shelf==='finished'&&old.finishedAt)||new Date().getFullYear()}else delete d.finishedAt;
+  if(old)S[t][S[t].indexOf(old)]=d;else S[t].push(d);
+  fresh.add(d.id);save();closeSheet();render()};
+}
+
+/* main interactions */
+document.addEventListener('click',e=>{
+ const tab=e.target.closest('.tabs button');
+ if(tab){document.body.dataset.tab=tab.dataset.tab;document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b===tab));return}
+ const a=e.target.closest('[data-act]');if(!a)return;
+ const col=a.closest('.col');if(!col)return;const t=col.dataset.type,act=a.dataset.act;
+ if(act==='add')return editor(t,null);
+ const card=a.closest('.card'),id=card.dataset.id,b=find(t,id);
+ if(act==='open')details(t,id);
+ else if(act==='edit')editor(t,id);
+ else if(act==='plus'){b.read=(+b.read||0)+1;if(b.total&&b.read>b.total)b.read=b.total;save();
+  $('.fill',card).style.width=prog(b).pct+'%';$('.pt',card).innerHTML=ptxt(b);$('.ct',card).textContent=ctxt(b)}
+ else if(act==='fin'){card.classList.add('gone');setTimeout(()=>{b.shelf='finished';b.finishedAt=new Date().getFullYear();if(b.total)b.read=b.total;fresh.add(id);save();render()},280)}
+});
+render();
+</script>
+</body>
+</html>
